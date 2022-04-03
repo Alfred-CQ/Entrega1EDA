@@ -30,16 +30,11 @@ int main() {
 
     long int sum;
 
-	int randomNumbers[elements];
-
 	random_device rd;  
     mt19937 gen(rd()); 
     uniform_int_distribution<> distrib(1, 100);
 
     int d, i, j;
-
-	for (i = 0; i < elements; ++i)
-        randomNumbers[i] = distrib(gen);
     
     vector<int> distances;
 
@@ -52,6 +47,13 @@ int main() {
 
     for (d = 0; d < ndimensions; ++d)
     {
+
+        vector<int> randomNumbers (elements * dimensions[d]);
+
+	    for (i = 0; i < elements*dimensions[d]; ++i)
+            randomNumbers[i] = distrib(gen);
+
+
         pivotBegin = dimensions[d]; pivotEnd = (2*dimensions[d])-1;
        
         j = 0;
@@ -110,8 +112,9 @@ int main() {
 
         file_out << counter << " )\n";
         cout << counter << " )\n";
-        distances.clear();
 
+        distances.clear();
+        randomNumbers.clear();
     }
 
     file_out.close();

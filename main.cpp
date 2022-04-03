@@ -50,7 +50,7 @@ int main() {
 
         vector<int> randomNumbers (elements * dimensions[d]);
 
-	    for (i = 0; i < elements*dimensions[d]; ++i)
+	    for (i = 0; i < elements * dimensions[d]; ++i)
             randomNumbers[i] = distrib(gen);
 
 
@@ -63,7 +63,7 @@ int main() {
         file_out << "\n------- Dimension: " << dimensions[d] << " ---------\n";
         cout << "\n------- Dimension: " << dimensions[d] << " ---------\n";
 
-        for (i = 0; i < elements; ++i)
+        for (i = 0; i < elements * dimensions[d]; ++i)
         {
             if ( i < pivotBegin || i > pivotEnd)
             {
